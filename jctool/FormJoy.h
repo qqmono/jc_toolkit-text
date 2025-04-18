@@ -2740,7 +2740,7 @@ public ref class FormJoy : public System::Windows::Forms::Form
             this->chkBox_IRDimLeds->RightToLeft = System::Windows::Forms::RightToLeft::No;
             this->chkBox_IRDimLeds->Size = System::Drawing::Size(195, 21);
             this->chkBox_IRDimLeds->TabIndex = 27;
-            this->chkBox_IRDimLeds->Text = L"Near/Wide  (130°)  Leds 3/4";
+            this->chkBox_IRDimLeds->Text = L"Near/Wide  (130Â°)  Leds 3/4";
             // 
             // chkBox_IRBrightLeds
             // 
@@ -2756,7 +2756,7 @@ public ref class FormJoy : public System::Windows::Forms::Form
             this->chkBox_IRBrightLeds->RightToLeft = System::Windows::Forms::RightToLeft::No;
             this->chkBox_IRBrightLeds->Size = System::Drawing::Size(195, 21);
             this->chkBox_IRBrightLeds->TabIndex = 26;
-            this->chkBox_IRBrightLeds->Text = L"Far/Narrow   (75°)  Leds 1/2";
+            this->chkBox_IRBrightLeds->Text = L"Far/Narrow   (75Â°)  Leds 1/2";
             // 
             // grpBox_IRRes
             // 
@@ -5012,7 +5012,7 @@ public ref class FormJoy : public System::Windows::Forms::Form
         this->lbl_rstDesc->Text = L"This allows for the device colors to be restored from the loaded backup.\n\n"+
             L"For more options click on the list above.";
 
-        if (this->comboBox_rstOption->SelectedIndex == 0) {
+        if (this->comboBox_rstOption->SelectedIndex == 4) {
             this->lbl_rstDesc->Visible = true;
         }
         if (this->comboBox_rstOption->SelectedIndex == 1) {
@@ -6098,7 +6098,7 @@ public ref class FormJoy : public System::Windows::Forms::Form
         this->lbl_IRStatus->Text = "Status: Configuring";
         Application::DoEvents();
 
-        // The IR camera lens has a FoV of 123°. The IR filter is a NIR 850nm wavelength pass filter.
+        // The IR camera lens has a FoV of 123Â°. The IR filter is a NIR 850nm wavelength pass filter.
 
         // Resolution config register and no of packets expected
         // The sensor supports a max of Binning [4 x 2] and max Skipping [4 x 4]
@@ -6136,11 +6136,11 @@ public ref class FormJoy : public System::Windows::Forms::Form
 
         // Enable IR Leds. Only the following configurations are supported.
         if (this->chkBox_IRBrightLeds->Checked == true && this->chkBox_IRDimLeds->Checked == true)
-            ir_new_config.ir_leds = 0b000000; // Both Far/Narrow 75° and Near/Wide 130° Led groups are enabled.
+            ir_new_config.ir_leds = 0b000000; // Both Far/Narrow 75Â° and Near/Wide 130Â° Led groups are enabled.
         else if (this->chkBox_IRBrightLeds->Checked == true && this->chkBox_IRDimLeds->Checked == false)
-            ir_new_config.ir_leds = 0b100000; // Only Far/Narrow 75° Led group is enabled.
+            ir_new_config.ir_leds = 0b100000; // Only Far/Narrow 75Â° Led group is enabled.
         else if (this->chkBox_IRBrightLeds->Checked == false && this->chkBox_IRDimLeds->Checked == true)
-            ir_new_config.ir_leds = 0b010000; // Only Near/Wide 130° Led group is enabled.
+            ir_new_config.ir_leds = 0b010000; // Only Near/Wide 130Â° Led group is enabled.
         else if (this->chkBox_IRBrightLeds->Checked == false && this->chkBox_IRDimLeds->Checked == false)
             ir_new_config.ir_leds = 0b110000; // Both groups disabled
 
